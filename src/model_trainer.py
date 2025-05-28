@@ -136,6 +136,21 @@ def random_forest_regressor():
     }
     return rfr, param
 
+def decision_tree_regressor():
+    """
+    Returns a DecisionTreeRegressor model and corresponding hyperparameter grid.
+    """
+    dtr = DecisionTreeRegressor(random_state=123)
+    param = {
+        "model__criterion": ["squared_error", "absolute_error"],
+        "model__max_features": ["sqrt", "log2"],
+        "model__max_depth": [4, 5, 6],
+        "model__min_samples_split": [3, 5, 7],
+        "model__min_samples_leaf": [2, 3],
+    }
+    return dtr, param
+
+
 def main() -> None:
     """
     Main function to run the model training pipeline for multiple regressors.
@@ -148,6 +163,13 @@ def main() -> None:
         clean_data,
         model=random_forest_regressor()[0],
         parameters=random_forest_regressor()[1],
+    )
+    
+    print("\nDecisionTreeRegressor\n" + 20 * "*")
+    create_model(
+        clean_data,
+        model=decision_tree_regressor()[0],
+        parameters=decision_tree_regressor()[1],
     )
 
 
