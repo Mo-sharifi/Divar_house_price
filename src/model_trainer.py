@@ -169,6 +169,18 @@ def xgboost():
     }
     return xgb, param
 
+def elastic_net():
+    """
+    Returns an ElasticNet model and corresponding hyperparameter grid.
+    """
+    eln = ElasticNet(random_state=1)
+    param_eln = {
+        "model__alpha": [0.01, 0.1, 0.5, 1, 5, 10],
+        "model__l1_ratio": [0.1, 0.3, 0.5, 0.7, 0.9],
+    }
+
+    return eln, param_eln
+
 
 def main() -> None:
     """
@@ -193,6 +205,9 @@ def main() -> None:
 
     print("\nXGBoost \n" + 20 * "*")
     create_model(clean_data, model=xgboost()[0], parameters=xgboost()[1])
+
+    print("\nElastic Net\n" + 20 * "*")
+    create_model(clean_data, model=elastic_net()[0], parameters=elastic_net()[1])
 
 
 
