@@ -151,6 +151,25 @@ def decision_tree_regressor():
     return dtr, param
 
 
+def xgboost():
+    """
+    Returns an XGBRegressor model and corresponding hyperparameter grid.
+    """
+    xgb = XGBRegressor(random_state=123)
+    param = {
+        "model__n_estimators": [300, 500],
+        "model__learning_rate": [0.01, 0.05],
+        "model__max_depth": [3, 5],
+        "model__min_child_weight": [3, 5],
+        "model__subsample": [0.8],
+        "model__colsample_bytree": [0.8],
+        "model__gamma": [0, 0.2],
+        "model__reg_alpha": [0.1],
+        "model__reg_lambda": [1, 2],
+    }
+    return xgb, param
+
+
 def main() -> None:
     """
     Main function to run the model training pipeline for multiple regressors.
@@ -164,13 +183,16 @@ def main() -> None:
         model=random_forest_regressor()[0],
         parameters=random_forest_regressor()[1],
     )
-    
+
     print("\nDecisionTreeRegressor\n" + 20 * "*")
     create_model(
         clean_data,
         model=decision_tree_regressor()[0],
         parameters=decision_tree_regressor()[1],
     )
+
+    print("\nXGBoost \n" + 20 * "*")
+    create_model(clean_data, model=xgboost()[0], parameters=xgboost()[1])
 
 
 
