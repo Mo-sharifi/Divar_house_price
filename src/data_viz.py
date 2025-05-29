@@ -52,7 +52,7 @@ def plot_price_by_room(
     """
     fig, ax = plt.subplots(figsize=(10, 6))
 
-    # قیمت رو به میلیارد تومان نشون بده
+    # show the Price on billion scale
     df = df.copy()
     df[price_col] = df[price_col] / 1e9
 
@@ -78,7 +78,7 @@ def plot_price_distribution(df: pd.DataFrame, column: str = "Price") -> None:
     """
     fig, ax = plt.subplots(figsize=(10, 6))
 
-    # مقیاس قیمت به میلیارد
+    # scale on billon
     scaled_prices = df[column] / 1e9
 
     sns.histplot(scaled_prices, kde=True, ax=ax, color="#ff7f0e", bins=30, edgecolor="black")  # type: ignore
