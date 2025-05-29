@@ -34,6 +34,8 @@ def plot_price_vs_area(
     ax.set_title(f"{y_col} vs {x_col} with {hue_col} Info")
     plt.tight_layout()
     plt.show()
+    
+    return fig
 
 
 def plot_price_by_room(
@@ -64,6 +66,8 @@ def plot_price_by_room(
     plt.tight_layout()
     plt.show()
 
+    return fig
+
 
 def plot_price_distribution(df: pd.DataFrame, column: str = "Price") -> None:
     """
@@ -88,6 +92,8 @@ def plot_price_distribution(df: pd.DataFrame, column: str = "Price") -> None:
     ax.set_ylabel("Count")
     plt.tight_layout()
     plt.show()
+    
+    return fig
 
 
 def plot_correlation_matrix(df: pd.DataFrame) -> None:
@@ -107,6 +113,8 @@ def plot_correlation_matrix(df: pd.DataFrame) -> None:
     ax.set_title("Correlation Matrix")
     plt.tight_layout()
     plt.show()
+
+    return fig
 
 
 def plot_flats_by_location(df: pd.DataFrame, column: str = "Address") -> None:
@@ -135,6 +143,8 @@ def plot_flats_by_location(df: pd.DataFrame, column: str = "Address") -> None:
     plt.tight_layout()
     plt.show()
 
+    return fig
+
 
 def plot_price_distribution_by_room(
     df: pd.DataFrame, price_col: str = "Price", room_col: str = "Room"
@@ -152,7 +162,7 @@ def plot_price_distribution_by_room(
     """
 
     df = df.copy()
-    df[price_col] = df[price_col] / 1e9  # مقیاس قیمت به میلیارد
+    df[price_col] = df[price_col] / 1e9  
 
     g = sns.FacetGrid(
         df, col=room_col, col_wrap=3, height=4, sharex=False, sharey=False
@@ -164,6 +174,8 @@ def plot_price_distribution_by_room(
     plt.subplots_adjust(top=0.9)
     g.fig.suptitle("Distribution of House Prices by Number of Rooms", fontsize=16)
     plt.show()
+    
+    return g.fig
 
 
 if __name__ == "__main__":
