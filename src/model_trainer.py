@@ -58,7 +58,7 @@ def create_model(df, model, parameters):
     # Build pipeline: encoding categorical features, scaling, and applying the model
     pipeline = Pipeline(
         [
-            ("encoder", ce.LeaveOneOutEncoder(cols=["Address"])),
+            ("encoder", ce.CatBoostEncoder(cols=["Address"])),
             ("scaler", StandardScaler()),
             ("model", model),
         ]
