@@ -1,7 +1,7 @@
 
 # Tehran House Price Prediction
 
-A machine learning project to predict house prices in Tehran using data from Divar.ir listings in 1401 (2022). This project leverages features such as area, number of rooms, parking, storage, elevator, and neighborhood to train predictive models, deployed via an interactive Streamlit application.
+A machine learning project to predict house prices in Tehran using data from Divar.ir listings in 1401 (2022). This project leverages features such as area, number of rooms, parking, storage, elevator, and Address to train predictive models, deployed via an interactive Streamlit application.
 
 **Author**: Mohammadreza Sharifi
 **Student ID**: 403135804  
@@ -21,11 +21,11 @@ A machine learning project to predict house prices in Tehran using data from Div
 - [License](#license)
 
 ## Project Overview
-This project, developed as part of an academic endeavor, aims to predict house prices in Tehran using a dataset of listings from Divar.ir in 1401 (2022). By processing features like area, number of rooms, parking, storage, elevator, and neighborhood, multiple machine learning models were trained to provide accurate price predictions. The final model is deployed through a user-friendly Streamlit web application, enabling users to estimate house prices interactively.
+This project, developed as part of an academic endeavor, aims to predict house prices in Tehran using a dataset of listings from Divar.ir in 1401 (2022). By processing features like area, number of rooms, parking, storage, elevator, and Address, multiple machine learning models were trained to provide accurate price predictions. The final model is deployed through a user-friendly Streamlit web application, enabling users to estimate house prices interactively.
 
 ## Features
 - **Data Collection**: Gathered from Divar.ir house listings in Tehran (1401/2022).
-- **Data Preprocessing**: Cleaning, encoding categorical variables (e.g., neighborhood), and normalizing numerical features.
+- **Data Preprocessing**: Cleaning, encoding categorical variables (e.g., Address), and normalizing numerical features.
 - **Machine Learning Models**: Implementation of Decision Tree, Random Forest, ElasticNet, and XGBoost algorithms.
 - **Model Evaluation**: Performance assessed using metrics like RMSE and R².
 - **Interactive Interface**: A Streamlit app for seamless house price predictions.
@@ -42,7 +42,7 @@ The dataset consists of Tehran house listings from Divar.ir in 1401 (2022) with 
 
 Additionally, the dataset included a column for house prices in USD. However, as the exchange rate in 1401 (2022) was approximately 30,000 IRR per USD, this column was excluded from the analysis to maintain consistency with IRR-based pricing.
 
-Preprocessing steps include handling missing values, one-hot encoding for categorical variables (e.g., neighborhood), and normalizing numerical features.
+Preprocessing steps include handling missing values, one-hot encoding for categorical variables (e.g., Address), and normalizing numerical features.
 
 ## Models
 The project implements and compares the following machine learning models:
@@ -89,7 +89,7 @@ To set up the project locally, follow these steps:
    python src/data_viz.py
    ```
 4. **Train Models**:
- Train the machine learning models using the model_trainer.py script. This script employs GridSearchCV to tune hyperparameters for Decision Tree, Random Forest, ElasticNet, and XGBoost algorithms. A pipeline is created that first encodes the neighborhood column using CatBoostEncoder, followed by scaling the data. Each algorithm’s parameters are defined in separate functions, and the script outputs R² scores for both train and test sets, along with MAE and RMSE metrics for the test set. The trained models are saved for later use:
+ Train the machine learning models using the model_trainer.py script. This script employs GridSearchCV to tune hyperparameters for Decision Tree, Random Forest, ElasticNet, and XGBoost algorithms. A pipeline is created that first encodes the Address column using CatBoostEncoder, followed by scaling the data. Each algorithm’s parameters are defined in separate functions, and the script outputs R² scores for both train and test sets, along with MAE and RMSE metrics for the test set. The trained models are saved for later use:
  
  **Why CatBoostEncoder?**  
 The Address column contains approximately 180 unique values, making One-Hot Encoding impractical due to the creation of a sparse dataset. Label Encoding was also unsuitable, as it assigns arbitrary numerical values (e.g., 1 for Shahrak-e Gharb, 250 for Molavi), which could mislead the model into assuming an incorrect value hierarchy (e.g., Molavi being "more valuable" than Shahrak-e Gharb). Leave-One-Out Encoding was considered but discarded due to generating NaN values for unseen addresses, which could disrupt the model. CatBoostEncoder was chosen as the optimal solution because it:
