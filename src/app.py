@@ -4,10 +4,10 @@ import numpy as np
 import time
 import joblib 
 
-XGB_model = joblib.load("Divar_house_prediction/models/XGBRegressor.sav")
-DT_model = joblib.load("Divar_house_prediction/models/DecisionTreeRegressor.sav")
-RF_model = joblib.load("Divar_house_prediction/models/RandomForestRegressor.sav")
-ELN_model =joblib.load("Divar_house_prediction/models/XGBRegressor.sav")
+XGB_model = joblib.load("models/XGBRegressor.sav")
+DT_model = joblib.load("models/DecisionTreeRegressor.sav")
+RF_model = joblib.load("models/RandomForestRegressor.sav")
+ELN_model =joblib.load("models/ElasticNet.sav")
 
 st.title("Tehran House _Prediction_")
 st.write("### Specific information is needed for get better results ")
