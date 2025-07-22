@@ -106,7 +106,7 @@ def create_model(df, model, parameters):
     print(f"Model {model_name} was saved !!!!")
 
 
-def save_model(model, model_name, directory="Divar_house_prediction/models"):
+def save_model(model, model_name, directory="models/"):
     """
     Saves the trained model to disk in the specified directory.
 

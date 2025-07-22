@@ -1,6 +1,6 @@
 import pandas as pd
 
-FILE_PATH = r"Divar_house_prediction/data/raw/data_set.csv"
+FILE_PATH = r"data/data_set.csv"
 
 
 def data_load(file_path:str =FILE_PATH)->pd.DataFrame:
