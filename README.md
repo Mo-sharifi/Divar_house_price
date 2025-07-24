@@ -6,7 +6,8 @@ A machine learning project to predict house prices in Tehran using data from Div
 **Author**: Mohammadreza Sharifi  
 **Student ID**: 403135804  
 **GitHub**: [Mo-sharifi](https://github.com/Mo-sharifi)  
-**Project Repository**: [Divar_house_price](https://github.com/Mo-sharifi/Divar_house_price)
+**Project Repository**: [Divar_house_price](https://github.com/Mo-sharifi/Divar_house_price)  
+**Streamlit app**: [Tehran House Price Predictor](https://divarhousepredictor.streamlit.app/)
 
 ## Table of Contents
 - [Project Overview](#project-overview)
@@ -29,10 +30,6 @@ This project, developed as part of an academic endeavor, aims to predict house p
 - **Machine Learning Models**: Implementation of Decision Tree, Random Forest, ElasticNet, and XGBoost algorithms.
 - **Model Evaluation**: Performance assessed using metrics like RMSE and R².
 - **Interactive Interface**: A Streamlit app for seamless house price predictions.
-- Try it Online: The final model is deployed through a user-friendly Streamlit web application, available online here:
-
-   👉 Streamlit App – [Tehran House Price Predictor](https://divarhouseprice.streamlit.app/)
-
 
 
 ## Dataset
@@ -116,7 +113,7 @@ This launches a local web server (typically at `http://localhost:8501`). Users c
 
 The application is also deployed on Streamlit Cloud, allowing anyone to use the model without any setup:
 
-🔗 [Tehran House Price Predictor](https://divarhouseprice.streamlit.app/)
+🔗 [Tehran House Price Predictor](https://divarhousepredictor.streamlit.app/)
 
 ## Prerequisites
 - Python 3.8 or higher
