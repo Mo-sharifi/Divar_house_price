@@ -1,4 +1,3 @@
-
 # Tehran House Price Prediction
 
 A machine learning project to predict house prices in Tehran using data from Divar.ir listings in 1401 (2022). This project leverages features such as area, number of rooms, parking, storage, elevator, and Address to train predictive models, deployed via an interactive Streamlit application.
@@ -52,6 +51,21 @@ The project implements and compares the following machine learning models:
 - **Random Forest**: An ensemble model for improved accuracy.
 - **ElasticNet**: A linear model with L1 and L2 regularization.
 - **XGBoost**: A gradient boosting model for high performance.
+
+## Model Performance
+
+The performance of each model was evaluated using common regression metrics: **R²**, **RMSE**, and **MAE**. The table below summarizes the test set performance for each algorithm:
+
+| Model                | R² Score (Train) | R² Score (Test) | RMSE (IRR)      | MAE (IRR)       |
+|----------------------|------------------|------------------|------------------|------------------|
+| ElasticNet           | 82.68%           | 80.36%           | 1,122,654,208.31 | 776,652,948.66   |
+| Decision Tree        | 83.35%           | 78.56%           | 1,172,796,570.04 | 738,901,760.27   |
+| Random Forest        | 88.78%           | 82.48%           | 1,060,303,936.91 | 634,092,430.24   |
+| XGBoost              | 88.78%           | 83.43%           | 1,030,961,893.25 | 622,108,130.48   |
+
+
+
+>  *XGBoost achieved the highest accuracy on the test set and is therefore used as the final deployed model.*
 
 
 ## Installation
